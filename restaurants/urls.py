@@ -1,11 +1,7 @@
 from django.urls import path
 
-from .views import (
-    CreateRestaurantAPIView,
-    GetCurrentDayMenuAPIView,
-    RestaurantListAPIView,
-    UploadMenuAPIView,
-)
+from .views import (CreateRestaurantAPIView, GetCurrentDayMenuAPIView,
+                    RestaurantListAPIView, UploadMenuAPIView)
 
 app_name = "restaurant"
 

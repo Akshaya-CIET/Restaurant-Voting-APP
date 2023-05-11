@@ -5,10 +5,10 @@ from .models import Vote
 
 @admin.register(Vote)
 class VoteAdmin(admin.ModelAdmin):
-    list_display = ("menu", "votes", "employee", "voted_date")
+    list_display = ("menu", "points", "employee", "voted_date")
     list_filter = ("menu", "employee", "voted_date")
     search_fields = ("menu__restaurant__name", "employee__username")
-    readonly_fields = ("menu", "votes", "employee", "voted_date")
+    readonly_fields = ("menu", "points", "employee", "voted_date")
     date_hierarchy = "voted_date"
     ordering = ("-voted_date",)
 

@@ -17,6 +17,8 @@ class RegisterAPIView(CreateAPIView):
     permission_classes = (AllowAny,)
 
     def create(self, request, *args, **kwargs):
+        # Create a new user profile and generate a token
+
         response = super().create(request, *args, **kwargs)
         if response.status_code == status.HTTP_201_CREATED:
             user = response.data
@@ -30,6 +32,8 @@ class LoginAPIView(APIView):
     permission_classes = (AllowAny,)
 
     def post(self, request):
+        # Authenticate user and return a token
+
         data = request.data
         username = data.get("username")
         password = data.get("password")
@@ -50,6 +54,8 @@ class LogoutAPIView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request):
+        # Delete user's authentication token to log them out
+
         request.user.auth_token.delete()
         return Response(
             {"Message": "User logged out successfully"}, status=status.HTTP_200_OK
@@ -61,6 +67,8 @@ class CreateEmployeeAPIView(APIView):
     authentication_classes = [TokenAuthentication]
 
     def post(self, request):
+        # Create a new employee
+
         data = request.data
 
         # Check if employee with the given ID already exists

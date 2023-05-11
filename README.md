@@ -124,3 +124,6 @@ Follow the below steps
 
 `make runserver`
 
+* Run tests 
+
+`make test`

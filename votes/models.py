@@ -10,7 +10,7 @@ class Vote(models.Model):
     menu = models.ForeignKey(
         Menu, on_delete=models.CASCADE, related_name="acquired_votes"
     )
-    votes = models.IntegerField(default=1)
+    points = models.IntegerField(default=1)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     voted_date = models.DateField(default=timezone.now)
 
